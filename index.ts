@@ -1,5 +1,7 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application } from 'express';
 import dotenv from 'dotenv';
+import routes from './routes/sales.route';
+import errorHandler from './middleware/errorHandler.middleware';
 
 dotenv.config();
 
@@ -8,9 +10,8 @@ const port = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/', (req: Request, res: Response) => {
-  res.send('Hello World');
-});
+app.use('/api', routes);
+app.use(errorHandler)
 
 app.listen(port, () => {
   console.log(`Server is Fire at https://localhost:${port}`);
