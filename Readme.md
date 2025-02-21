@@ -25,7 +25,7 @@ npm install
 OPENAI_API_KEY=your_api_key_here
 ```
 
-<b>Usage</b>
+## Usage
 
 4. Run the development server:
 ```sh
@@ -39,6 +39,18 @@ npm run build
 ```sh
 npm start
 ```
+
+## Docker
+
+1. Build the Docker image:
+```sh
+docker build -t sales-assistant .
+```
+2. Run the container:
+```sh
+docker run -p 8000:8000 -e OPENAI_API_KEY=your_api_key_here sales-assistant
+```
+
 
 ## Sample Sales Data
 
@@ -70,3 +82,4 @@ npm start
   "summary": "AI-generated summary string"
 }
 ```
+
